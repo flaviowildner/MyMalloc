@@ -154,6 +154,8 @@ int MyMallocFree(void *ptr){
 	return 1;
 }
 
+
+//BENCHMARKS
 void teste_MyMalloc(){
 	int **a;
 	int i, j;
@@ -167,13 +169,13 @@ void teste_MyMalloc(){
 	gettimeofday(&start, NULL);
 
 	a = (int**)MyMalloc(x * sizeof(int*));
-    for(i=0;i<x;i++){
-        a[i] = (int*)MyMalloc(y * sizeof(int));
-    }
-    for(i=0;i<x;i++){
-        for(j=0;j<y;j++){
-            a[i][j] = i+j;
-        }
+	for(i=0;i<x;i++){
+		a[i] = (int*)MyMalloc(y * sizeof(int));
+	}
+    	for(i=0;i<x;i++){
+		for(j=0;j<y;j++){
+		    a[i][j] = i+j;
+		}
 	}
 	
 	for(i=0;i<x;i=i+2){
@@ -186,8 +188,8 @@ void teste_MyMalloc(){
 
 	gettimeofday(&end, NULL);
 
-    tmili = (int) (1000 * (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000);
-    printf("Myalloc - Tempo de alocacao e realocacao: %dms\n", tmili);
+	tmili = (int) (1000 * (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000);
+	printf("Myalloc - Tempo de alocacao e realocacao: %dms\n", tmili);
 }
 
 void teste_MyMalloc2(){
@@ -203,13 +205,13 @@ void teste_MyMalloc2(){
 	gettimeofday(&start, NULL);
 
 	a = (int**)MyMalloc(x * sizeof(int*));
-    for(i=0;i<x;i++){
-        a[i] = (int*)MyMalloc(y * sizeof(int));
-    }
-    for(i=0;i<x;i++){
-        for(j=0;j<y;j++){
-            a[i][j] = i+j;
-        }
+	for(i=0;i<x;i++){
+		a[i] = (int*)MyMalloc(y * sizeof(int));
+	}
+	for(i=0;i<x;i++){
+		for(j=0;j<y;j++){
+		    a[i][j] = i+j;
+		}
 	}
 	
 	for(i=0;i<x;i=i+2){
@@ -222,8 +224,8 @@ void teste_MyMalloc2(){
 
 	gettimeofday(&end, NULL);
 
-    tmili = (int) (1000 * (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000);
-    printf("Myalloc - Tempo de alocacao e realocacao com fragmentacao: %dms\n", tmili);
+	tmili = (int) (1000 * (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000);
+	printf("Myalloc - Tempo de alocacao e realocacao com fragmentacao: %dms\n", tmili);
 }
 
 void teste_malloc(){
